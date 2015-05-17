@@ -1,0 +1,27 @@
+<h1>Books</h1>
+<div ng-show='bookCtrl.books.length'>
+  <table class="table table-hover">
+  <tr>
+    <td>
+      Title
+    </td>
+    <td>
+      Copies Left
+    </td>
+    <td>
+      Published
+    </td>
+  </tr>
+  <tr ng-repeat='book in bookCtrl.books'>
+    <td>
+      <a href ng-click='bookCtrl.getBook(book.pk)'>[[book.title]]</a>
+    </td>
+    <td>
+      [[book.copies - book.checkedOut]]
+    </td>
+    <td>
+      [[book.published]]
+    </td>
+  </tr>
+  </table>
+</div>

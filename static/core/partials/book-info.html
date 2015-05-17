@@ -1,0 +1,14 @@
+<div ng-show='bookCtrl.book.title'>
+  <div class="row">
+  <a href ng-click='bookCtrl.getBooks()'>Back To Books</a>
+  <h2>[[bookCtrl.book.title]]</h2>
+  
+  <img class="pull-left" src='[[bookCtrl.book.cover]]'>
+  <blockquote>[[bookCtrl.book.note]]</blockquote>
+  </div>
+  <div class="row">
+    <h3>Description</h3>
+    <p>[[bookCtrl.book.descript]]</p>
+    <a href='[[bookCtrl.book.amazonLink]]'>Amazon</a>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# guard &
+
+# ./compass-watch
+
+./manage runserver $1
+

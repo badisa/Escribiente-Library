@@ -1,0 +1,4 @@
+*.pyc
+venv
+library/library/settings.py
+db.sql3

@@ -1,0 +1,3 @@
+#!/bin/bash
+THE_DIR=`dirname "$0"`
+$THE_DIR/../venv/bin/python $THE_DIR/manage.py `echo "$*"`
