@@ -1,14 +1,24 @@
-<div ng-show='bookCtrl.book.title'>
+<div class="col-md-offset-2 col-md-8">
+  <h2>{{book.title}}</h2>
   <div class="row">
-  <a href ng-click='bookCtrl.getBooks()'>Back To Books</a>
-  <h2>[[bookCtrl.book.title]]</h2>
-  
-  <img class="pull-left" src='[[bookCtrl.book.cover]]'>
-  <blockquote>[[bookCtrl.book.note]]</blockquote>
+    <div class="col-md-6">
+    <a class="btn btn-primary" href='#/library/books/'>Back To Books</a>
+    <a class="btn btn-success" target="__blank__" href='{{book.amazonLink}}'>Purchase on Amazon</a>
+    </div>
   </div>
   <div class="row">
-    <h3>Description</h3>
-    <p>[[bookCtrl.book.descript]]</p>
-    <a href='[[bookCtrl.book.amazonLink]]'>Amazon</a>
+    <div class="col-md-12">
+      <img class="pull-left" ng-src='{{book.cover}}'>
+      <blockquote class="blockquote-reverse" ng-show='book.note'>
+      {{book.note}}
+      <footer>Escribiente Note</footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Description</h3>
+      <p>{{book.descript}}</p>
+    </div>
   </div>
 </div>
