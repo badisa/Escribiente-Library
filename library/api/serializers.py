@@ -14,10 +14,11 @@ class BookSerializer(serializers.Serializer):
     isbn_10 = serializers.CharField(max_length=10, required=False)
     isbn = serializers.CharField(max_length=13, required=False)
     note = serializers.CharField(required=False)
+    genre = serializers.CharField(max_length=40)
 
     def create(self, validated_data):
         return Book.objects.new_book(
-            validated_data.get('isbn'), note=validated_data.get('note', ''))
+            validated_data.get('isbn'), validated_data.get('genre'), note=validated_data.get('note', ''))
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
@@ -26,5 +27,6 @@ class BookSerializer(serializers.Serializer):
         instance.descript = validated_data.get('description', instance.descript)
         instance.cover = validated_data.get('cover', instance.cover)
         instance.note = validated_data.get('note', instance.note)
+        instance.genre = validated_data.get('genre', instance.genre)
         instance.save()
         return instance

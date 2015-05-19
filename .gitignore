@@ -1,4 +1,5 @@
 *.pyc
 venv
 library/library/settings.py
-db.sql3
+
+library/db.sqlite3

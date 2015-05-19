@@ -2,7 +2,7 @@ from django.db import models
 
 
 class BookManager(models.Manager):
-    def new_book(self, isbn, note=False):
+    def new_book(self, isbn, genre, note=False):
         isbn = str(isbn)
         if len(isbn) == 10 or len(isbn) == 13:
             data = Book.get_data(isbn)
@@ -12,7 +12,8 @@ class BookManager(models.Manager):
                 cover=data.get('cover'),
                 descript=data.get('description'),
                 isbn_10=data.get('isbn_10'),
-                isbn_13=data.get('isbn_13')
+                isbn_13=data.get('isbn_13'),
+                genre=genre
             )
             if note:
                 book.note = note
@@ -36,6 +37,7 @@ class Book(models.Model):
     cover = models.TextField(blank=True, null=True)
     descript = models.TextField(default='No Description')
     note = models.TextField(blank=True, null=True)
+    genre = models.CharField(max_length=30)
 
     objects = BookManager()
 
